@@ -1,10 +1,19 @@
 body{
     background-color: oldlace;
     text-align: center;
+    user-select: none;
 }
 
 h1{
     font-family: 'Courier New', Courier, monospace;
+    text-decoration: underline;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+h1:hover{
+    text-decoration: overline underline;
+    cursor: none;
 }
 
 .square{
@@ -15,6 +24,7 @@ h1{
     display: inline-block;
     border-radius: 15px;
     box-shadow: 3px 3px black;
+    cursor: pointer;
 }
 
 .p1{
