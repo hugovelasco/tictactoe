@@ -16,16 +16,15 @@ function handleClick(event) {
 
     let square = event.target;
     let position = square.id;
-    let msg = "";
 
-    yourTurn === 0 ? msg = "1st Player is the champion!" : msg = "2nd Player is the champion!";
-
+    yourTurn === 0 ? msg = '1st Player is the champion!\n\nThe winner sequence was: ' : msg = '2nd Player is the champion!\n\nThe winner sequence was: ';
+    
     if (handleMove(position)) {
         setTimeout(()=>{
-            alert(msg+"\n\n"+"The winner sequence was: "+winnerSeq);
+            alert(msg+winnerSeq);
             document.location.reload(true);
-        }),1;
-    };
+        },10);
+    } 
     updateSquare(position);
 }
 
