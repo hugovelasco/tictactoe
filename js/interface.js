@@ -12,29 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleClick(event) {
 
-    console.log(event.target);
+    // console.log(event.target);
 
     let square = event.target;
     let position = square.id;
+    let msg = "";
 
-    handleMove(position);
-    updateSquares();
+    yourTurn === 0 ? msg = "1st Player is the champion!" : msg = "2nd Player is the champion!";
 
+    if (handleMove(position)) {
+        setTimeout(()=>{
+            alert(msg+"\n\n"+"The winner sequence was: "+winnerSeq);
+            document.location.reload(true);
+        }),1;
+    };
+    updateSquare(position);
 }
 
-function updateSquares() {
+function updateSquare(position) {
 
-    let squares = document.querySelectorAll(".square");
-
-    squares.forEach((square) => {
-
-        let position = square.id;
-        let symbol = board[position];
-
-        if(symbol != ''){
-            square.innerHTML = `<div class='${symbol}'></div>`;
-        }
-
-    });
+    let square = document.getElementById(position.toString());
+    let symbol = board[position];
+    square.innerHTML = `<div class='${symbol}'></div>`;
 
 }
