@@ -4,6 +4,7 @@ let yourTurn = 0;
 let symbols = ['p1', 'p2'];
 let gameOver = false;
 let winnerSeq = [];
+let msg = "";
 let winnerStates = [
     [0, 1, 2],
     [3, 4, 5],
@@ -52,4 +53,18 @@ function winner() {
         }
     }
     return false;
+}
+
+function draw() {
+
+    for (let i = 0; i < board.length; i++) {
+        if (board[i] != "") {
+            let full =+ 1;
+            if (full === board.length) {
+                alert("DRAW!\n\nThere's no winners this time!");
+            }
+        }
+        // break;
+    }
+    
 }
