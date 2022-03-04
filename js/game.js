@@ -30,6 +30,14 @@ function handleMove(position) {
 
         if (!gameOver) {
 
+            //se não houve um gameover na jogada ele vai verificar se houve draw
+            // antes de alterar a vez do jogador.
+
+            if (draw()) {
+                gameOver = true;
+                return;
+            }
+
             yourTurn = (yourTurn === 0) ? yourTurn = 1 : yourTurn = 0;
 
         }
@@ -56,15 +64,24 @@ function winner() {
 }
 
 function draw() {
-
+    //inicio da função
+    let full = 0;
     for (let i = 0; i < board.length; i++) {
         if (board[i] != "") {
-            let full =+ 1;
+            // aqui eu somo o valor atual com 1
+            full += 1;
             if (full === board.length) {
-                alert("DRAW!\n\nThere's no winners this time!");
+
+                setTimeout(() => {
+                    alert("DRAW!\n\nThere's no winners this time!");
+                    document.location.reload(true);
+                }, 10);
+                return true;
             }
+        } else {
+            // se um deles não for igual a "", ou seja, restam tarefas,
+            break;
         }
-        // break;
     }
-    
+
 }
